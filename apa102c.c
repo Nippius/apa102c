@@ -38,7 +38,7 @@ static uint32_t g_pui32LedFrames[LED_STRIP_SIZE];
  * Send a LED frame starting with the most significant byte.
  */
 static void send_frame(uint32_t ui32Frame) {
-    for (int i = 0; i < APA102_FRAME_SIZE; i++) {
+    for (uint32_t i = 0; i < APA102_FRAME_SIZE; i++) {
         // Grab most significant byte
         uint32_t frame_msb = (ui32Frame & 0xFF000000) >> 24;
         // Send it
@@ -69,7 +69,7 @@ void set_pixel(uint8_t ui8Index, uint8_t ui8Brightness, uint32_t ui32Color) {
  */
 void set_all(uint8_t ui8Brightness, uint32_t ui32Color)
 {
-    for(int i=0;i<LED_STRIP_SIZE;i++)
+    for(uint32_t i=0;i<LED_STRIP_SIZE;i++)
     {
         set_pixel(i, ui8Brightness, ui32Color);
     }
@@ -88,7 +88,7 @@ void clear_pixel(uint8_t ui8Index) {
  * Clears the entire strip.
  */
 void clear_strip() {
-    for (int i = LED_STRIP_SIZE - 1; i >= 0; i--) {
+    for (uint32_t i = LED_STRIP_SIZE - 1; i >= 0; i--) {
         g_pui32LedFrames[i] = BASE_LED_FRAME;
     }
 }
@@ -99,7 +99,7 @@ void clear_strip() {
 void display_strip() {
     send_frame(START_FRAME);
 
-    for (int i = 0; i < LED_STRIP_SIZE; i++) {
+    for (uint32_t i = 0; i < LED_STRIP_SIZE; i++) {
         send_frame(g_pui32LedFrames[i]);
     }
 
@@ -108,7 +108,7 @@ void display_strip() {
     // This could be improved by sending 1 byte at a time instead of 4
     // For more info, check "The End Frame" section:
     //      https://cpldcpu.wordpress.com/2014/11/30/understanding-the-apa102-superled/
-    for (int i = 0; i <= LED_STRIP_SIZE / 64; i++) {
+    for (uint32_t i = 0; i <= LED_STRIP_SIZE / 64; i++) {
         send_frame(END_FRAME);
     }
 }
