@@ -42,6 +42,7 @@
 #define BLUE                    0x000000FF
 
 void set_pixel(uint8_t ui8Index, uint8_t ui8Brightness, uint32_t ui32Color);
+void set_all(uint8_t ui8Brightness, uint32_t ui32Color);
 void clear_pixel(uint8_t ui8Index);
 void clear_strip();
 void display_strip();

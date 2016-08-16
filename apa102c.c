@@ -65,6 +65,17 @@ void set_pixel(uint8_t ui8Index, uint8_t ui8Brightness, uint32_t ui32Color) {
 }
 
 /**
+ * Sets all pixel to given brightness and color values.
+ */
+void set_all(uint8_t ui8Brightness, uint32_t ui32Color)
+{
+    for(int i=0;i<LED_STRIP_SIZE;i++)
+    {
+        set_pixel(i, ui8Brightness, ui32Color);
+    }
+}
+
+/**
  * Clears a pixel.
  */
 void clear_pixel(uint8_t ui8Index) {
