@@ -88,7 +88,7 @@ void clear_pixel(uint8_t ui8Index) {
  * Clears the entire strip.
  */
 void clear_strip() {
-    for (uint32_t i = LED_STRIP_SIZE - 1; i >= 0; i--) {
+    for (uint32_t i = 0; i < LED_STRIP_SIZE; i++) {
         g_pui32LedFrames[i] = BASE_LED_FRAME;
     }
 }
