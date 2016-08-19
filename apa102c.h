@@ -40,6 +40,12 @@
 #define RED                     0x00FF0000
 #define GREEN                   0x0000FF00
 #define BLUE                    0x000000FF
+#define RED_OFFSET              (8*2)
+#define GREEN_OFFSET            (8*1)
+#define BLUE_OFFSET             (0)
+
+// Composes the pixel color from the individual red, green and blue components
+#define PIXEL_COLOR(R,G,B)      (((R)<<RED_OFFSET) | ((G)<<GREEN_OFFSET) | ((B)<<BLUE_OFFSET))
 
 void set_pixel(uint8_t ui8Index, uint8_t ui8Brightness, uint32_t ui32Color);
 void set_all(uint8_t ui8Brightness, uint32_t ui32Color);
