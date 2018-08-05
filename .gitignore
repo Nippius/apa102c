@@ -9,3 +9,4 @@ targetConfigs/
 tm4c1233h6pm.cmd
 tm4c1233h6pm_startup_ccs.c
 main.c
+Examples/
